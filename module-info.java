@@ -1,0 +1,9 @@
+/**
+ * 
+ */
+/**
+ * @author kuroiwatakumi
+ *
+ */
+module algorithm {
+}
