@@ -1,8 +1,12 @@
 import java.util.*;
 import java.util.Arrays;
 import java.util.Random;
+import java.util.stream.IntStream;
 
-public class Practice {
+/**
+ * 第2章 1: 数の分類・文字式・2進法
+ */
+public class Practice2To1 {
 
 	public static void main(String[] arg) {
 		Random rand = new Random();
@@ -24,6 +28,7 @@ public class Practice {
 
 		// 問題ID: 003
 		int n = rand.nextInt(100);
+		// int n = 11;
 		System.out.println("N:" + n);
 		List<Integer> nList = new ArrayList<>();
 
@@ -33,6 +38,12 @@ public class Practice {
 			System.out.println("tmpNum:" + tmpNum);
 		}
 		practice3(n, nList);
+
+		// 問題ID: 004
+		practice4(n);
+
+		// p.22 章末問題
+		practice5(aArray);
 	}
 
 	/**
@@ -73,5 +84,41 @@ public class Practice {
 			sum += num;
 		}
 		System.out.println("003 合計：" + sum);
+	}
+
+	/**
+	 * p.20 10進法を2進法に変換する
+	 * A1+A2・・・AのNを出力
+	 * 
+	 * @param n 整数N
+	 */
+	private static void practice4(int n) {
+		String answer = "";
+
+		while (n >= 1) {
+			// nを2で割った数の余りが1の場合
+			if (n % 2 == 1) {
+				answer = "1" + answer;
+			}
+			// nを2で割った数の余りが0の場合
+			if (n % 2 == 0) {
+				answer = "0" + answer;
+			}
+			n = n / 2;
+		}
+		System.out.println(answer);
+	}
+
+	/**
+	 * p.22 章末問題
+	 * A1, A2, A3：A1A2A3（かけ算）
+	 * 
+	 * @param aArray 整数A1,A2,A3
+	 */
+	private static void practice5(int[] aArray) {
+		System.out.println("章末問題");
+		System.out.println("A1:" + aArray[0] + ",A2:" + aArray[1] + ",A3:" + aArray[2]);
+		int sum = IntStream.of(aArray).reduce(1, (a, b) -> a * b);
+		System.out.println(sum);
 	}
 }
