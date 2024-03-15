@@ -1,3 +1,5 @@
+package algorithm_math.chapter2;
+
 import java.util.Random;
 
 /**
